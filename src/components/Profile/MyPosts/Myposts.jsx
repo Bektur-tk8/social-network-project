@@ -3,22 +3,32 @@ import s from '../MyPosts/Myposts.module.css'
 import Post from "./Post/Post";
 
 const MyPosts = () => {
+
+    let postsData = [
+        {id:1, message: 'Hi, how are you?', likesCount: 12},
+        {id:2, message: 'its me first post', likesCount: 2}
+    ]
     return (
-        <div>
+
+        <div className={s.postsBlock}>
+            <h3>My posts</h3>
             <div>
-                My posts
                 <div>
                     <textarea></textarea>
-                    <button>Add post</button>
                 </div>
-                <div className={s.posts}>
-                    <Post message='hi, how are you?' likesCount = '0' />
-                    <Post message = 'its my first post' likesCount = '20' />
-                    
+                <div>
+                    <button>Add post</button>
                 </div>
 
             </div>
+            <div className={s.posts}>
+                <Post message={postsData[0].message} likesCount={postsData[0].likesCount} />
+                <Post message={postsData[1].message} likesCount={postsData[1].likesCount} />
+
+            </div>
+
         </div>
+
     )
 }
 
