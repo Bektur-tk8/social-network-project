@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Navbar from './components/Navbar/Navbar';
 
-const App = () => {
+const App = (props) => {
   return (
 
     <div className="app-wrapper">
@@ -13,8 +13,8 @@ const App = () => {
       <Navbar />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route exact path='/dialogs' Component={Dialogs} />
-          <Route path='/profile' Component={Profile} />
+          <Route exact path='/dialogs' Component={() => <Dialogs state = {props.state.dialogsPage}/>} />
+          <Route path='/profile' Component={() => <Profile state ={props.state.profilePage} />} />
         </Routes>
       </div>
     </div>
